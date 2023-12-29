@@ -1,4 +1,5 @@
 .loading {
+    color: auto;
     animation: infinite LoadAnim 2s;
 }
 

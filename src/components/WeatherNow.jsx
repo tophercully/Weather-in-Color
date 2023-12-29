@@ -29,13 +29,23 @@ export const WeatherNow = (props) => {
             setIcon('sunny.svg')
         }
 
+        var link = document.createElement('link'),
+        oldLink = document.getElementById('dynamic-favicon');
+        link.id = 'dynamic-favicon';
+        link.rel = 'shortcut icon';
+        link.href = icon;
+        if (oldLink) {
+            document.head.removeChild(oldLink);
+        }
+        document.head.appendChild(link);
+
     }, [weather])
     
     
 
     return (
         <div className="now-card">
-            <img src={icon} className="weatherIcon"></img>
+            <img src={icon} id="weather-icon" className="weatherIcon"></img>
             <h2>{weather ? condition : ''}</h2>
             <h1 className="temp">{weather ? Math.round(temp)+'°F' : ''}</h1>
             <div className="temp-break"></div>

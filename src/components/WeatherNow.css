@@ -1,6 +1,7 @@
 h1 {
     /* color:aqua */
     font-weight: 700;
+    padding-left: 0%;
     /* animation: loadIn 800ms ease-in; */
     
 }
@@ -29,7 +30,7 @@ h2{
     
 
     /* max-width: 100%; */
-    width: 100%;
+    width: 66%;
 
     font-size: 1vmax;
     /* padding: 1em; */
@@ -48,6 +49,10 @@ h2{
     align-items: flex-start;
 }
 
+.temp{
+    padding: 0%;
+}
+
 .temp-break {
     /* position: absolute; */
     height: 0px;
@@ -57,7 +62,11 @@ h2{
 
 .weatherIcon {
     width:2rem;
+
+    animation: fadeIn 4s normal;
 }
+
+
 
 
 

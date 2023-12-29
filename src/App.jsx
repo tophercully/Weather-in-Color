@@ -11,6 +11,7 @@ function App() {
 
   const [weather, setWeather] = useState(undefined)
   const [locQuery, setLocQuery] = useState('auto:ip')
+  const [colorTrigger, setColorTrigger] = useState(false)
   const backupLoqQuery = ''
   const [pal, setPal] = useState({
     bg:'#E6E5E2',
@@ -19,62 +20,100 @@ function App() {
     text: '#000000'
   })
 
+  const sunnyPal = {
+    bg:'#F6D150',
+    card:'#E6E5E2',
+    accent: '#000000',
+    text: '#000000'
+  }
+  const cloudyPal = {
+    bg:'#E6E5E2',
+    card:'#E6E5E2',
+    accent: '#000000',
+    text: '#000000'
+  }
+  const rainyPal = {
+    bg:'#5d6979',
+    card:'#1c1c1c',
+    accent: '#E6E5E2',
+    text: '#E6E5E2'
+  }
+  const nightPal = {
+    bg:'#1c1c1c',
+    card:'#1c1c1c',
+    accent: '#E6E5E2',
+    text: '#E6E5E2'
+  }
+
   const [loc, setLoc] = useState({
     lat:null,
     long:null
   })
 
-  function HandleColor() {
-    if(weather) {
-      let condition = weather.current.condition.text
-      if(condition == 'Sunny' || condition == 'Clear') {
-        setPal({
-          ...pal,
-          bg: '#BBD2F5'//'#F6D150'
-          
-        })
-      }
+  const invertIcons = () => {
+    document.getElementById('weather-icon').style.filter="invert(100%)"
+    const drops = document.getElementsByClassName('water-drop')
+
+    for(var i = 0; i < drops.length; i++) {
+        drops[i].style.filter = "invert(100%)"
     }
-    // const root = document.documentElement;
-    document.documentElement.style.setProperty("--bg", pal.bg);
-    document.documentElement.style.setProperty("--card", pal.card);
-    document.documentElement.style.setProperty("--accent", pal.accent);
-    document.documentElement.style.setProperty("--text", pal.text);
   }
 
   useEffect(() => {
-    const nav = navigator.geolocation.getCurrentPosition((locate) => {
-      setLoc({
+    const grabWeather = async() => {
+      const response = await fetch(('https://api.weatherapi.com/v1/forecast.json?key=436a61609495450790e215740232712&q='+locQuery+'&days=7'), {
+        method: 'POST',
+        headers:{ 'Content-Type': 'application/json' },
+      })
+      const data = await response.json()
+      return data
+    }
+
+    const handleWeather = async() => {
+      const nav = navigator.geolocation.getCurrentPosition((locate) => {
+        setLoc({
           lat:locate.coords.latitude,
           long: locate.coords.longitude
+        })
       })
-      
-      // console.log(locate.coords)
-    })
-    const response = fetch(('https://api.weatherapi.com/v1/forecast.json?key=436a61609495450790e215740232712&q='+locQuery+'&days=7'), {
-      method: 'POST',
-      headers:{ 'Content-Type': 'application/json' },
-    })
-    .then(response => response.json())
-    .then(data => setWeather(data))
 
-    // let root = document.documentElement;
-    // root.style.setProperty("--bg", pal.bg);
-    // root.style.setProperty("--card", pal.card);
-    // root.style.setProperty("--accent", pal.accent);
-    // root.style.setProperty("--text", pal.text);
+      const toSet = await grabWeather()
+      setWeather(toSet)
 
+      let palNow = sunnyPal
+      if(toSet.current.cloud > 10) {
+        palNow = cloudyPal
+      } else if(toSet.current.precip_in > 0) {
+        palNow = rainyPal
+        invertIcons()
+        // document.getElementById('weather-icon').style.filter="invert(100%)"
 
-    HandleColor()
+      } else if(toSet.forecast.forecastday[0].is_sun_up == 0) {
+        palNow = nightPal
+        invertIcons()
+      } 
+    
+      document.documentElement.style.setProperty("--bg", palNow.bg);
+      document.documentElement.style.setProperty("--card", palNow.card);
+      document.documentElement.style.setProperty("--accent", palNow.accent);
+      document.documentElement.style.setProperty("--text", palNow.text);
+    }
+   
+    handleWeather()
+    
+
+    // setColorTrigger(true)
+    
+    
   }, [])
 
   
 
 
   if(weather) {
-
+    //style={{"--bg":pal.bg}}
     return (
-      <div className='app-container'>
+      <div className='app-container' >
         <div className='line1'>
           <WeatherNow weather={weather} />
           {/* <div className='line1-br'></div> */}

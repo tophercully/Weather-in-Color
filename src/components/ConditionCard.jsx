@@ -8,13 +8,14 @@ export const ConditionCard = (props) => {
     let forecast
     let Temp
     let rainChance
-
+    
     const d = new Date()
     //set up modifiers to handle day overlap
+
     let dayMod = 0
     let hourMod = 0
     if(d.getHours()+hourIndex > 24) {
-        isTomorrow = 1
+        dayMod = 1
         hourMod = -24
     }
     
@@ -62,7 +63,7 @@ export const ConditionCard = (props) => {
                 <h2>{nowName}</h2>
                 <Temp/>
                 <span className="precipitation-chance">
-                    <img src="water-drop.svg" className="water-drop"></img>
+                    <img src="water-drop.svg" className="water-drop" id="water-drop"></img>
                     <h2>{rainChance + '%'}</h2>
                 </span>
             </div>

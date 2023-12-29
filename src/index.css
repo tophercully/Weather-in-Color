@@ -34,6 +34,8 @@
   color: var(--text);
   background-color: var(--bg);
 
+  transition: 3s;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -125,6 +127,41 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+
+@keyframes fadeIn {
+  0%{
+      width: 2rem;
+      height: 0rem;
+      opacity: 0%;
+  }
+  50%{
+      width: 2rem;
+      height: 0rem;
+      opacity: 0%;
+  }
+
+  100% {
+      width:2rem;
+      height:2rem;
+      opcacity: 100%;
+  }
+}
+@keyframes fadeInDrops {
+  0%{
+      transform: scale(0);
+      opacity: 0%;
+  }
+  50%{
+    transform: scale(0);
+      opacity: 0%;
+  }
+
+  100% {
+    transform: scale(1);
+      opcacity: 100%;
   }
 }
 

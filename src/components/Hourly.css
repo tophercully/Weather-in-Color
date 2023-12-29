@@ -25,7 +25,7 @@ h1 {
     /* width: 100%; */
     flex-grow: 1;
 
-    overflow: scroll;
+    overflow: auto;
 
     
     /* flex-direction: row; */

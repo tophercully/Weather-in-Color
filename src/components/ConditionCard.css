@@ -93,9 +93,12 @@ h3 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    animation: fadeInDrops 4s ease-in-out;
 }
 
 .water-drop {
-    height:1.5vh
+    height:1.5em;
+
+    /* animation: fadeInDrops 4s ease; */
 }
 
