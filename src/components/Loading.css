@@ -1,0 +1,15 @@
+.loading {
+    animation: infinite LoadAnim 2s;
+}
+
+@keyframes LoadAnim {
+    0% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}

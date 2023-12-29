@@ -9,6 +9,7 @@ export const DetailsNow = (props) => {
     const windDir = weather ? weather.current.wind_dir : ''
     const condition = weather ? weather.current.condition.text : ''
     const cloudCover = weather ? weather.current.cloud : ''
+    const uv = weather ? weather.current.uv : ''
     // const name = weather ? weather.location.name : undefined
 
     return (
@@ -21,9 +22,13 @@ export const DetailsNow = (props) => {
                 <h2>{weather ? 'Wind' : ''}</h2>
                 <h3>{weather ? windDir + ' ' + windSpd+ 'mph ': ''}</h3>
             </span>
-            <span className="detail-end">
+            <span className="detail">
                 <h2>{weather ? 'Cloud Cover' : ''}</h2>
                 <h3>{weather ? cloudCover + '%': ''}</h3>
+            </span>
+            <span className="detail">
+                <h2>{weather ? 'UV' : ''}</h2>
+                <h3>{weather ? uv + '%': ''}</h3>
             </span>
             
         </div>

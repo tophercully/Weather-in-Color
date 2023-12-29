@@ -17,6 +17,7 @@ h1 {
 .hourly-card {
     margin-top: 1em;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -24,6 +25,7 @@ h1 {
     /* width: 100%; */
     flex-grow: 1;
 
+    overflow: scroll;
 
     
     /* flex-direction: row; */

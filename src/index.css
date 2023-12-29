@@ -1,4 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
+  all: unset;
   font-family: 'PP Neue Montreal', sans-serif;
   src: url("../public/neueMontreal.otf") format("opentype");
   line-height: 1.5;
@@ -13,7 +20,9 @@
   width: 100%;
   min-width: 100%;
 
-  padding:10px;
+  height:99%;
+
+  /* padding:10px; */
 
 
   --bg: #000000;
@@ -32,7 +41,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  animation: slideUp 2s ease-out;
+  
 
 }
 
@@ -50,10 +59,11 @@
 }
 
 html {
-  width: 100%;
-  height:100%;
+  width: 100vw;
+  height:100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 
 }
@@ -121,13 +131,13 @@ button:focus-visible {
 .line1 {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; 
+  justify-content: space-evenly; 
   align-items: normal;
 
   /* background-color: var(--card); */
   /* border: 0.5px solid var(--accent); */
 
-  padding:0em;
+  margin-bottom:3em;
 
 }
 
@@ -138,12 +148,14 @@ button:focus-visible {
 }
 
 .app-container{
-  /* padding:2em; */
+  padding:2em;
   height:100%;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: space-between;
+
+  animation: slideUp 2s ease-out;
   
 }

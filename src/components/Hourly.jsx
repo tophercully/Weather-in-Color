@@ -26,7 +26,12 @@ export const Hourly = (props) => {
             <ConditionCard dayIndex={0} hourIndex={3} weather={weather} isDay={false} />
             <ConditionCard dayIndex={0} hourIndex={4} weather={weather} isDay={false} />
             <ConditionCard dayIndex={0} hourIndex={5} weather={weather} isDay={false} />
-            <ConditionCard dayIndex={0} hourIndex={6} weather={weather} isDay={false} end={true}/>
+            <ConditionCard dayIndex={0} hourIndex={6} weather={weather} isDay={false} />
+            <ConditionCard dayIndex={0} hourIndex={7} weather={weather} isDay={false} />
+            <ConditionCard dayIndex={0} hourIndex={8} weather={weather} isDay={false} />
+            <ConditionCard dayIndex={0} hourIndex={9} weather={weather} isDay={false} />
+            <ConditionCard dayIndex={0} hourIndex={10} weather={weather} isDay={false} />
+            <ConditionCard dayIndex={0} hourIndex={11} weather={weather} isDay={false} end={true}/>
             {/* <AllDays /> */}
         </div>
     )

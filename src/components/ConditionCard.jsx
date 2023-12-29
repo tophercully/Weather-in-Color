@@ -33,19 +33,19 @@ export const ConditionCard = (props) => {
         Temp = () => {
             return (
                 <>
-                    <h1>{Math.round(maxTemp)+'°'}</h1>
+                    <h1 className="tempDisplay">{Math.round(maxTemp)+'°'}</h1>
                     <h3>{'↓'+Math.round(minTemp)+'°'}</h3>
                 </>
         )}
     } else {
-        forecast = weather ? weather.forecast.forecastday[0].hour[hourIndex] : ''
         nowName = hourCode > 12 ? hourCode-12 + 'pm' : hourCode+'am'
+        forecast = weather ? weather.forecast.forecastday[0].hour[hourIndex] : ''
         rainChance = weather ? forecast.chance_of_rain : ''
 
         Temp = () => {
             return (
                 <>
-                    <h1>{Math.round(forecast.temp_f)+'°'}</h1>
+                    <h1 className="tempDisplay">{Math.round(forecast.temp_f)+'°'}</h1>
                 </>
         )}
 

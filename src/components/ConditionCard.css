@@ -2,15 +2,27 @@ h1 {
     /* color:aqua */
     font-weight: 100;
     /* animation: loadIn 800ms ease-in; */
-    font-size: 0.5em
+    font-size: 0.5em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+
+    padding-left: 0.15em;
+}
+
+.tempDisplay{
+    font-weight:400;
+    font-size: 3em;
 }
 
 h2 {
     font-weight: 800;
+    
 }
 
 h3 {
     font-weight: 200;
+    /* padding-top:0.5em; */
+    padding-bottom:0.5em;
 }
 
 @keyframes loadIn {
@@ -26,10 +38,19 @@ h3 {
 .condition-div {
     padding-top: 10px;
     flex-grow: 1;
+    /* width:10vw; */
+
+    
 }
 
+
+
 .condition-card {
-    display: flex column center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
 
     padding: 5px;
     margin-left:3px;
@@ -48,7 +69,10 @@ h3 {
 
 }
 .condition-card-last {
-    display: flex column center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     margin-left: 3px;
     margin-right: 3px;
     flex-grow:1;
