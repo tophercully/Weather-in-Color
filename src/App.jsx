@@ -59,10 +59,16 @@ function App() {
     }
   }
 
+  function SearchBarDefault() {
+    return (
+      <SearchBar locQuery={locQuery} setLocQuery={setLocQuery}/>
+    )
+  }
+
   useEffect(() => {
     const grabWeather = async() => {
       const response = await fetch(('https://api.weatherapi.com/v1/forecast.json?key=436a61609495450790e215740232712&q='+locQuery+'&days=7'), {
-        method: 'POST',
+        method: 'GET',
         headers:{ 'Content-Type': 'application/json' },
       })
       const data = await response.json()
@@ -71,14 +77,9 @@ function App() {
     }
 
     const handleWeather = async() => {
-      // const nav = navigator.geolocation.getCurrentPosition((locate) => {
-      //   setLoc({
-      //     lat:locate.coords.latitude,
-      //     long: locate.coords.longitude
-      //   })
-      // })
       const toSet = await grabWeather()
       setWeather(toSet)
+      console.log('response is ', toSet)
 
       let palNow = sunnyPal
       if(toSet.current.cloud > 10) {
@@ -102,27 +103,57 @@ function App() {
 
   
 
-
+  console.log('weather is ', weather)
   if(weather) {
-    return (
-      <div className='app-container' >
-        <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay}/>
-        <div className='line1'>
-          <WeatherNow weather={weather} />
-          {/* <div className='line1-br'></div> */}
-          <DetailsNow weather={weather} />
+    if(!weather.location) {
+      if(weather.error.code == 1003) {
+
+        return(
+          <>
+            <SearchBarDefault/>
+            <h1>{weather.error.code}</h1>
+         </>
+        ) 
+
+      } else if(weather.error.code == 1006) {
+        return(
+          <>
+            <SearchBarDefault/>
+            <h1>{weather.error.code}</h1>
+          </>
+        ) 
+      }
+    } else {
+      //render app
+      return (
+        <div className='app-container' >
+          <SearchBarDefault/>
+          <div className='line1'>
+            <WeatherNow weather={weather} />
+            <DetailsNow weather={weather} />
+          </div>
+          <div className='line2'>
+            <Daily weather={weather}/>
+            <Hourly weather={weather}/>
+          </div>
+          
         </div>
-        <div className='line2'>
-          <Daily weather={weather}/>
-          <Hourly weather={weather}/>
-        </div>
-      </div>
-    )
+      )
+    }
   } else {
-    return(
+    return (
       <Loading />
     )
   }
+  // else if (weather.error.code) {
+  //   console.log(weather)
+  // }
+  
+  // else {
+  //   return(
+  //     <Loading />
+  //   )
+  // }
   
 }
 

@@ -18,13 +18,13 @@ h1 {
     margin-top: 1em;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     padding:1em;
     /* width: 100%; */
     flex-grow: 1;
 
-
+    overflow: auto;
     
     /* flex-direction: row; */
 
