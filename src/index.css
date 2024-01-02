@@ -25,10 +25,10 @@
   /* padding:10px; */
 
 
-  --bg: #000000;
-  --card: #000000;
-  --accent: #2f2f2f;
-  --text: #ffffff
+  --bg: #E6E5E2;
+  --card: #E6E5E2;
+  --accent: #000000;
+  --text: #000000
 
   color-scheme: light dark;
   color: var(--text);
@@ -186,7 +186,8 @@ button:focus-visible {
 
 .app-container{
   padding:2em;
-  height:100%;
+  height:100vh;
+  width: 100vw;
 
   display: flex;
   flex-direction: column;
