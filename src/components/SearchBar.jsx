@@ -7,19 +7,16 @@ export const SearchBar = (props) => {
 
     const placeHolder = '\u2315'
 
-    // if(input == '') {
-    //     document.getElementById('searchInput').style = font-size='10rem'
-    // }
-
     function handleChange(e) {
-        if(input != '') {
+        if(e.target.value != '') {
+            console.log(e.target.value)
             setInput(e.target.value)
         }
     }
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log('submitting', input)
+        console.log('submitting', event.target)
         setLocQuery(input)
     }
 

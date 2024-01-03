@@ -50,7 +50,7 @@ export const WeatherNow = (props) => {
             <h1 className="temp">{weather ? Math.round(temp)+'°F' : ''}</h1>
             <div className="temp-break"></div>
             <h2>{weather ? 'Feels like ' + Math.round(feelsLike)+'°' : ''}</h2>
-            <h2>{weather ? name : ''}</h2>
+            <h2>{weather ? name+', '+region : ''}</h2>
 
         </div>
     )
