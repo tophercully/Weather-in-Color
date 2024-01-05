@@ -1,5 +1,8 @@
 .forecastToggle{
-    display: flex;
+    display: inline-block;
+    position: relative;
+    width: 10vw;
+    height: 5vw;
     
 }
 
@@ -10,8 +13,43 @@
 }
 
 
+
 .checkbox{
     display: inline-block;
+}
+
+.slider{
+    position:absolute;
+    cursor: pointer;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: red;
+    transition: 0.5s;
+
+    border-radius: 100px;
+
+}
+
+.slider:before {
+    position: absolute;
+    content: "Daily";
+    height: 4vw;
+    width: 4vw;
+    left:1vw;
+    bottom:1vw;
+    transition: 0.5s;
+
+
+}
+
+input:checked + .slider{
+    background-color: black;
+}
+
+input:focus + .slider {
+    box-shadow: 0, 0, 1px, blue;
 }
 
 

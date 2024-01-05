@@ -83,6 +83,8 @@ function App() {
         palNow = nightPal
         invertIcons()
       } 
+
+      
       document.documentElement.style.setProperty("--bg", palNow.bg);
       document.documentElement.style.setProperty("--card", palNow.card);
       document.documentElement.style.setProperty("--accent", palNow.accent);
@@ -92,6 +94,9 @@ function App() {
     }
     handleWeather()
   }, [locQuery])
+
+
+  
 
   
 
