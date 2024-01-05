@@ -1,10 +1,3 @@
-h1 {
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-
-    padding-left: 0.15em;
-}
-
 .tempBubble{
     display: flex;
     flex-direction: column;
@@ -25,11 +18,13 @@ h1 {
 }
 
 .now{
-    font-size: 2vmin;
+    font-size: 3vmin;
+    margin-top: 1vmin;
 }
 
 .low{
     transform-origin: 50%;
+    margin-bottom: 1vmin;
 }
 
 .tempDisplay > h1{
@@ -38,11 +33,16 @@ h1 {
     justify-content: center;
     align-items: center;
     font-size: 10vmin;
+
+    padding-top: 1vmin;
+    padding-bottom: 1vmin;
+
+   
     
 }
 
 .tempBubble > h3 {
-    font-size: 2vmin;
+    font-size: 3vmin;
 }
 
 h2 {
@@ -114,6 +114,8 @@ h3 {
     border-radius: 200rem;
     font-size: 50%;
 
+    padding: 3vmin;
+
 }
 
 .pad{
@@ -136,13 +138,14 @@ h3 {
     align-items: flex-end;
     justify-content: space-between;
 
-    font-weight: 300;
-
-    /* transform: translateX(-15%); */
+    /* font-weight: 100; */
 
     width: 30vw;
     border-bottom: 0.5px solid var(--text);
-    /* animation: fadeInDrops 4s ease-in-out; */
+}
+
+.detail-span > h2 {
+    font-weight: 400;
 }
 
 .water-drop {
