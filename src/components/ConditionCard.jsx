@@ -47,12 +47,13 @@ export const ConditionCard = (props) => {
         forecast = weather ? weather.forecast.forecastday[0].hour[hourIndex] : ''
         rainChance = weather ? forecast.chance_of_rain : ''
         humidity = weather ? forecast.humidity : ''
-        wind = weather ? forecast.wind_mph+' '+forecast.wind_dir : ''
+        wind = weather ? forecast.wind_dir+' '+forecast.wind_mph : ''
 
         Temp = () => {
             return (
                 <div className="tempBubble">
                     <h1 className="tempDisplay">{Math.round(forecast.temp_f)+'°'}</h1>
+                    <br></br>
                 </div>
         )}
 
@@ -82,7 +83,7 @@ export const ConditionCard = (props) => {
                 </span>
                 <span className="detail-span">
                     <img src="wind.svg" className="water-drop" id="water-drop"></img>
-                    <h2>{wind}</h2>
+                    <h2>{wind+'mph'}</h2>
                 </span>
              
             </div>
