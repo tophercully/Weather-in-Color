@@ -6,12 +6,16 @@ import { Daily } from './components/Daily'
 import { Hourly } from './components/Hourly'
 import { Loading } from './components/Loading'
 import {SearchBar} from './components/SearchBar'
+import { Forecast } from './components/Forecast'
+import { Sun } from './components/Sun'
 
 function App() {
   console.log('initializing')
   const [weather, setWeather] = useState(undefined)
   const [locQuery, setLocQuery] = useState('auto:ip')
   const [locDisplay, setLocDisplay] = useState('Austin')
+ 
+  
   console.log('query is ',locQuery)
   const backupLoqQuery = 'Austin'
   const [pal, setPal] = useState({
@@ -22,15 +26,15 @@ function App() {
   })
 
   const sunnyPal = {
-    bg:'#F6D150',
+    bg:'#E6E5E2',
     card:'#E6E5E2',
-    accent: '#000000',
+    accent: '#F36336',
     text: '#000000'
   }
   const cloudyPal = {
     bg:'#E6E5E2',
     card:'#E6E5E2',
-    accent: '#000000',
+    accent: '#5484CB',
     text: '#000000'
   }
   const rainyPal = {
@@ -46,10 +50,7 @@ function App() {
     text: '#E6E5E2'
   }
 
-  const [loc, setLoc] = useState({
-    lat:null,
-    long:null
-  })
+
 
   const invertIcons = () => {
     document.getElementById('weather-icon').style.filter="invert(100%)"
@@ -107,14 +108,15 @@ function App() {
     return (
       <div className='app-container' >
         <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay}/>
+        {/* <Sun weather={weather}/> */}
         <div className='line1'>
           <WeatherNow weather={weather} />
           <DetailsNow weather={weather} />
         </div>
         <div className='line2'>
-          <Daily weather={weather}/>
-          <Hourly weather={weather}/>
+          <Forecast weather={weather}/>
         </div>
+        <br></br>
       </div>
     )
   } else {

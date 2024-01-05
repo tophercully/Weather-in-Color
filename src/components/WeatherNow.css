@@ -28,7 +28,7 @@ h2{
     /* padding:5vh; */
     
     
-
+    height: 30vh;
     /* max-width: 100%; */
     width: 66%;
 
@@ -50,7 +50,10 @@ h2{
 }
 
 .temp{
-    padding: 0%;
+    padding-top: 5%;
+    padding-left: 0%;
+
+    
 }
 
 .temp-break {

@@ -2,12 +2,14 @@ import React from "react";
 import './ConditionCard.css'
 
 export const ConditionCard = (props) => {
-    const {weather, dayIndex, hourIndex} = props
+    const {weather, dayIndex, hourIndex, orientation} = props
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     let nowName
     let forecast
     let Temp
     let rainChance
+    let humidity
+    let wind
     
     const d = new Date()
     //set up modifiers to handle day overlap
@@ -30,43 +32,97 @@ export const ConditionCard = (props) => {
         nowName = dayName
         forecast = weather ? weather.forecast.forecastday[dayIndex].day : ''
         rainChance = weather ? forecast.daily_chance_of_rain : ''
+        humidity = weather ? forecast.avghumidity : ''
+        wind = weather ? forecast.maxwind_mph : ''
 
         Temp = () => {
             return (
-                <>
+                <div className="tempBubble">
                     <h1 className="tempDisplay">{Math.round(maxTemp)+'°'}</h1>
-                    <h3>{'↓'+Math.round(minTemp)+'°'}</h3>
-                </>
+                    <h3 className="low">{'↓'+Math.round(minTemp)+'°'}</h3>
+                </div>
         )}
     } else {
         nowName = hourCode > 12 ? hourCode-12 + 'pm' : hourCode+'am'
         forecast = weather ? weather.forecast.forecastday[0].hour[hourIndex] : ''
         rainChance = weather ? forecast.chance_of_rain : ''
+        humidity = weather ? forecast.humidity : ''
+        wind = weather ? forecast.wind_mph+' '+forecast.wind_dir : ''
 
         Temp = () => {
             return (
-                <>
+                <div className="tempBubble">
                     <h1 className="tempDisplay">{Math.round(forecast.temp_f)+'°'}</h1>
-                </>
+                </div>
         )}
 
     }
     
     const maxTemp = weather ? forecast.maxtemp_f : ''
     const minTemp = weather ? forecast.mintemp_f : ''
-    const thisClass = props.end ? 'condition-card-last' : 'condition-card'
+
+    function Main() {
+        return(
+            <div className="condition-card-main">
+                <h2 className="now">{nowName}</h2>
+                <Temp/>
+            </div>
+        )
+    }
+    function Detail() {
+        return(
+            <div className="condition-card-detail">
+                <span className="detail-span">
+                    <img src="rainchance.svg" className="water-drop" id="water-drop"></img>
+                    <h2>{rainChance + '%'}</h2>
+                </span>
+                <span className="detail-span">
+                    <img src="water-drop.svg" className="water-drop" id="water-drop"></img>
+                    <h2>{humidity + '%'}</h2>
+                </span>
+                <span className="detail-span">
+                    <img src="wind.svg" className="water-drop" id="water-drop"></img>
+                    <h2>{wind}</h2>
+                </span>
+             
+            </div>
+        )
+    }
+
+    function Card() {
+        if(orientation==1) {
+            return(
+                <div className="condition-card">
+                    <div className="cc-left">
+                        <Main/>
+                        <div className="br-horiz-left"></div>
+                    </div>
+                        <div className="br-line"></div>
+                    <div className="cc-right">
+                        <Detail/>
+                    </div>
+                </div>
+                )
+        } else {
+            return(
+
+                <div className="condition-card">
+                    <div className="cc-left">
+                        <Detail/>
+                    </div>
+                        <div className="br-line"></div>
+                    <div className="cc-right">
+                        <div className="br-horiz-right"></div>
+                        <Main/>
+                    </div>
+                </div>
+                )
+        }
+    }
 
 
     return(
-        <div className="condition-div">
-            <div className={thisClass}>
-                <h2>{nowName}</h2>
-                <Temp/>
-                <span className="precipitation-chance">
-                    <img src="water-drop.svg" className="water-drop" id="water-drop"></img>
-                    <h2>{rainChance + '%'}</h2>
-                </span>
-            </div>
-        </div>
+        <Card />
+       
     )
 }

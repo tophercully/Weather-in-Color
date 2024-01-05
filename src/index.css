@@ -22,6 +22,9 @@
 
   height:99%;
 
+  --sunX:1;
+  --sunY:var(--sunX);
+
 
   --bg: #E6E5E2;
   --card: #E6E5E2;
@@ -169,10 +172,12 @@ button:focus-visible {
   justify-content: space-evenly; 
   align-items: normal;
 
+  height: 40vh;
+
   /* background-color: var(--card); */
   /* border: 0.5px solid var(--accent); */
 
-  /* margin-bottom:2em; */
+  margin-bottom:2em;
 
 }
 
@@ -189,9 +194,11 @@ button:focus-visible {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: space-between;
 
   animation: slideUp 2s ease-out;
+
+  margin-bottom: 10px;
   
 }
