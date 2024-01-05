@@ -33,7 +33,7 @@
 
   color-scheme: light dark;
   color: var(--text);
-  background-color: var(--bg);
+  background-color: var(--bg) !important;
 
   transition: 3s;
 
@@ -91,6 +91,8 @@ body {
 
   margin:0px;
   position: relative;
+
+  background-color: var(--bg) !important;
   
 }
 

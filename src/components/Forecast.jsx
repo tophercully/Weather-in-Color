@@ -43,10 +43,9 @@ export const Forecast = (props) => {
 
     return(
         <div className="forecast">
-            <div className="forecastToggle" onClick={toggleForecast}>
-
+            <label className="forecastToggle" onClick={toggleForecast}>
                 <p>toggle</p>
-            </div>
+            </label>
             
             <ForecastNow />
         </div>
