@@ -99,7 +99,7 @@ export const ConditionCard = (props) => {
                         <div className="br-horiz-left"></div>
                     </div>
                         <div className="br-line"></div>
-                    <div className="cc-right">
+                    <div className="cc-right-detail">
                         <Detail/>
                     </div>
                 </div>
