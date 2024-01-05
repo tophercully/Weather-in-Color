@@ -4,7 +4,7 @@ import './WeatherNow.css'
 export const WeatherNow = (props) => {
     const {weather} = props
     const name = weather ? weather.location.name : ''
-    const region = weather ? weather.location.region : ''
+    const region = weather ? (weather.location.region ? ', ' + weather.location.region : '') : ''
     const temp = weather ? weather.current.temp_f : ''
     const feelsLike = weather ? weather.current.feelslike_f : ''
     const [icon, setIcon] = useState('')
@@ -50,7 +50,7 @@ export const WeatherNow = (props) => {
             <h1 className="temp">{weather ? Math.round(temp)+'°F' : ''}</h1>
             <div className="temp-break"></div>
             <h2>{weather ? 'Feels like ' + Math.round(feelsLike)+'°' : ''}</h2>
-            <h2>{weather ? name+', '+region : ''}</h2>
+            <h2>{weather ? name+region : ''}</h2>
 
         </div>
     )

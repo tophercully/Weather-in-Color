@@ -1,0 +1,69 @@
+.sunBlock{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    width: 90%;
+    height:50vh;
+
+    margin-bottom: 5vh;
+    
+}
+
+.path-container{
+    /* overflow-y: hidden; */
+    display: flex;
+    justify-content: center;
+    /* border: 1px red solid; */
+}
+.sun-path{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: -30%;
+    align-self: center;
+    width:66%;
+    aspect-ratio: 1/1;
+    
+    /* height:20vh; */
+    /* transform: translateX(0%) translateY(50%); */
+    transform-origin: 50% 100%;
+    transform: rotate(90deg) ;
+    
+    
+    
+
+    
+    /* transform: translate(0%,  50%, -1px); */
+    
+    border-radius: 50%;
+    border: 1px solid var(--text);
+}
+
+.sun{
+    z-index: -1;
+    position: absolute;
+    background-color: var(--accent);
+    width: 3vmin;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    top:-1.5vmin;
+    /* left:0px; */
+
+    transform-origin: -50% 100%;
+
+    rotate: 20deg;
+    
+}
+
+.times{
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+
+    font-size: 10px;
+}

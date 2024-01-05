@@ -1,0 +1,21 @@
+.forecastToggle{
+    display: flex;
+    
+}
+
+.forecastToggle input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+.checkbox{
+    display: inline-block;
+}
+
+
+
+.forecast {
+    transition: 3s;
+}
