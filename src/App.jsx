@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { WeatherNow } from './components/WeatherNow'
 import { DetailsNow } from './components/DetailsNow'
-import { Daily } from './components/Daily'
-import { Hourly } from './components/Hourly'
 import { Loading } from './components/Loading'
 import {SearchBar} from './components/SearchBar'
 import { Forecast } from './components/Forecast'
@@ -18,12 +16,6 @@ function App() {
   
   console.log('query is ',locQuery)
   const backupLoqQuery = 'Austin'
-  const [pal, setPal] = useState({
-    bg:'#E6E5E2',
-    card:'#E6E5E2',
-    accent: '#000000',
-    text: '#000000'
-  })
 
   const sunnyPal = {
     bg:'#E6E5E2',
@@ -105,20 +97,40 @@ function App() {
 
 
   if(weather) {
-    return (
-      <div className='app-container' >
-        <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay}/>
-        {/* <Sun weather={weather}/> */}
-        <div className='line1'>
-          <WeatherNow weather={weather} />
-          <DetailsNow weather={weather} />
+    if(weather.current) {
+      return (
+        <div className='app-container' >
+          <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay}/>
+          {/* <Sun weather={weather}/> */}
+          <div className='line1'>
+            <WeatherNow weather={weather} />
+            <DetailsNow weather={weather} />
+          </div>
+          <div className='line2'>
+            <Forecast weather={weather}/>
+          </div>
+          <br></br>
         </div>
-        <div className='line2'>
-          <Forecast weather={weather}/>
-        </div>
-        <br></br>
-      </div>
-    )
+      )
+    } else if(weather.error){
+      if(weather.error.code == 1003) {
+
+        return(
+          <>
+          <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay}/>
+          <h1>{weather.error.code}</h1>
+          <h3>Location not found, please try again</h3>
+          </>
+          )
+      } else {
+        return(
+          <>
+          <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay}/>
+          <h3>unknown error</h3>
+          </>
+          )
+      }
+    }
   } else {
     return(
       <Loading />
