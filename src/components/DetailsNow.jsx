@@ -16,19 +16,23 @@ export const DetailsNow = (props) => {
         <div className="now-card-detail">
             <span className="detail">
                 <h2>{weather ? 'Humidity' : ''}</h2>
-                <h3>{weather ? humidity +'%': ''}</h3>
+                <h4>•</h4>
+                <h4>{weather ? humidity +'%': ''}</h4>
             </span>
             <span className="detail">
                 <h2>{weather ? 'Wind' : ''}</h2>
-                <h3>{weather ? windDir + ' ' + windSpd+ 'mph ': ''}</h3>
+                <h4>•</h4>
+                <h4>{weather ? windDir + ' ' + windSpd+ ' mph': ''}</h4>
             </span>
             <span className="detail">
                 <h2>{weather ? 'Cloud Cover' : ''}</h2>
-                <h3>{weather ? cloudCover + '%': ''}</h3>
+                <h4>•</h4>
+                <h4>{weather ? cloudCover + '%': ''}</h4>
             </span>
             <span className="detail">
                 <h2>{weather ? 'UV' : ''}</h2>
-                <h3>{weather ? uv + '%': ''}</h3>
+                <h4>•</h4>
+                <h4>{weather ? uv + '%': ''}</h4>
             </span>
             
         </div>

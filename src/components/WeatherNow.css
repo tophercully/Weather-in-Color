@@ -1,17 +1,18 @@
 h1 {
     /* color:aqua */
-    font-weight: 700;
+    font-weight: 400;
     padding-left: 0%;
     /* animation: loadIn 800ms ease-in; */
     
 }
 
-h2{ 
+.now-card > h2{ 
     font-weight:400;
-    font-size:1em;
+    font-size:2.5vh;
 
     padding-top: 0.5em;
 }
+
 
 @keyframes loadIn {
     0% {
@@ -30,9 +31,9 @@ h2{
     
     height: 30vh;
     /* max-width: 100%; */
-    width: 66%;
+    width: 50%;
 
-    font-size: 1vmax;
+    font-size: 2vh;
     /* padding: 1em; */
 
     

@@ -171,7 +171,7 @@ button:focus-visible {
 .line1 {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; 
+  justify-content: space-between; 
   align-items: normal;
 
   

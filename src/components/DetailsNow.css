@@ -1,16 +1,18 @@
-h1 {
-    /* color:aqua */
-    font-weight: 700;
-    /* animation: loadIn 800ms ease-in; */
-    
+.detail > h2{ 
+    font-weight:500;
+    font-size:2vmax;
+
+    padding-top: 0.5em;
+    text-align: left;
+
+    /* align-self: flex-start; */
 }
 
-h2 {
-    font-weight: 500;
-}
+.detail > h4 {
+    /* align-self: flex-end; */
 
-h3 {
-    font-weight: 400;
+    font-weight:400;
+    font-size:2vmax;
 }
 
 @keyframes loadIn {
@@ -29,6 +31,8 @@ h3 {
     width:40%;
     justify-content: space-between;
     align-items: center;
+
+    text-align: right;
     /* padding:1em; */
     
    
@@ -47,7 +51,7 @@ h3 {
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: space-between;
+    align-items: flex-end;
     justify-content: space-between;
     border-bottom: 1px solid var(--text);
 
