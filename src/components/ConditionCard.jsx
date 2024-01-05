@@ -94,6 +94,7 @@ export const ConditionCard = (props) => {
             return(
                 <div className="condition-card">
                     <div className="cc-left">
+                        <div className="pad"></div>
                         <Main/>
                         <div className="br-horiz-left"></div>
                     </div>
@@ -112,8 +113,10 @@ export const ConditionCard = (props) => {
                     </div>
                         <div className="br-line"></div>
                     <div className="cc-right">
+                        
                         <div className="br-horiz-right"></div>
                         <Main/>
+                        <div className="pad"></div>
                     </div>
                 </div>
                 )
