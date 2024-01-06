@@ -12,7 +12,7 @@
 }
 
 .path-container{
-    /* overflow-y: hidden; */
+    overflow-y: hidden;
     display: flex;
     justify-content: center;
     /* border: 1px red solid; */
@@ -28,9 +28,9 @@
     aspect-ratio: 1/1;
     
     /* height:20vh; */
-    /* transform: translateX(0%) translateY(50%); */
+    transform: translateX(0%) translateY(50%);
     transform-origin: 50% 100%;
-    transform: rotate(90deg) ;
+    /* transform: rotate(90deg) ; */
     
     
     
@@ -54,7 +54,7 @@
 
     transform-origin: -50% 100%;
 
-    rotate: 20deg;
+    /* rotate: 20deg; */
     
 }
 
