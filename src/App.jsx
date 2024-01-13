@@ -13,30 +13,30 @@ function App() {
   const [locDisplay, setLocDisplay] = useState('Austin')
  
   const backupLoqQuery = 'Austin'
-
+  const white =  '#f5f5f5'
   const sunnyPal = {
-    bg:'#E6E5E2',
-    card:'#E6E5E2',
+    bg:white,
+    card:white,
     accent: '#F36336',
     text: '#000000'
   }
   const cloudyPal = {
-    bg:'#E6E5E2',
-    card:'#E6E5E2',
+    bg:white,
+    card:white,
     accent: '#5484CB',
     text: '#000000'
   }
   const rainyPal = {
     bg:'#5d6979',
     card:'#1c1c1c',
-    accent: '#E6E5E2',
-    text: '#E6E5E2'
+    accent: white,
+    text: white
   }
   const nightPal = {
     bg:'#1c1c1c',
     card:'#1c1c1c',
-    accent: '#E6E5E2',
-    text: '#E6E5E2'
+    accent: white,
+    text: white
   }
 
 

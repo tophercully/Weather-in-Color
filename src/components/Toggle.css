@@ -22,8 +22,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--accent);
-    color: var(--card);
+    background-color: var(--bg);
+    color: var(--text);
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 34px;
@@ -38,15 +38,16 @@
     aspect-ratio: 1/1;
     left: 5%;
     bottom: 10%;
-    background-color: var(--text);
+    background-color: var(--accent);
+    color: var(--text);
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
 }
 
 input:checked + .slider {
-    background-color: var(--accent);
-    color:var(--bg)
+    background-color: var(--bg);
+    color:var(--text)
 }
 
 input:focus + .slider {
