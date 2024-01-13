@@ -8,13 +8,10 @@ import { Forecast } from './components/Forecast'
 import { Sun } from './components/Sun'
 
 function App() {
-  console.log('initializing')
   const [weather, setWeather] = useState(undefined)
   const [locQuery, setLocQuery] = useState('auto:ip')
   const [locDisplay, setLocDisplay] = useState('Austin')
  
-  
-  console.log('query is ',locQuery)
   const backupLoqQuery = 'Austin'
 
   const sunnyPal = {

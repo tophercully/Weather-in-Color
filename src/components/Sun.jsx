@@ -19,7 +19,6 @@ export const Sun = (props) => {
     return(
         <div className="sunBlock">
             <div className="path-container">
-
                 <div className="sun-path">
                     <div className="sun"></div>
                 </div>

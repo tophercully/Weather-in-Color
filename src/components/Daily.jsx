@@ -7,17 +7,6 @@ export const Daily = (props) => {
 
     const [days, setDays] = useState({})
 
-    function AllDays() {
-        
-        for(let i = 0; i < 7; i++) {
-            
-            return (<ConditionCard dayIndex={i} weather={weather} />)
-            
-        }
-
-       
-    }
-
     return (
         <div className="daily-card">
             
@@ -25,10 +14,10 @@ export const Daily = (props) => {
             <ConditionCard dayIndex={0} weather={weather} isDay={true} orientation="1"/>
             <ConditionCard dayIndex={1} weather={weather} isDay={true} orientation="0"/>
             <ConditionCard dayIndex={2} weather={weather} isDay={true} orientation="1"/>
-            <ConditionCard dayIndex={3} weather={weather} isDay={true} orientation="0"/>
+            {/* <ConditionCard dayIndex={3} weather={weather} isDay={true} orientation="0"/>
             <ConditionCard dayIndex={4} weather={weather} isDay={true} orientation="1"/>
             <ConditionCard dayIndex={5} weather={weather} isDay={true} orientation="0"/>
-            <ConditionCard dayIndex={6} weather={weather} isDay={true} orientation="1"/>
+            <ConditionCard dayIndex={6} weather={weather} isDay={true} orientation="1"/> */}
             {/* <AllDays /> */}
         </div>
     )
