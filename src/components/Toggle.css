@@ -1,0 +1,62 @@
+.switch{
+    position: relative;
+    display: flex;
+    width:12vh;
+    height:3vh;
+    /* background-color: red; */
+    border:1px solid var(--text);
+    border-radius: 50rem;
+}
+
+.switch input[type=checkbox] {
+    display: none;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--accent);
+    color: var(--card);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+
+
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 80%;
+    aspect-ratio: 1/1;
+    left: 5%;
+    bottom: 10%;
+    background-color: var(--text);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent);
+    color:var(--bg)
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(8.6vh);
+}
+   
+

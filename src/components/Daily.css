@@ -15,7 +15,7 @@ h1 {
 }
 
 .daily-card {
-    margin-top: 1em;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

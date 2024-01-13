@@ -30,7 +30,9 @@ export const ConditionCard = (props) => {
     
     if(props.isDay) {
         nowName = dayName
-        forecast = weather ? weather.forecast.forecastday[dayIndex].day : ''
+        console.log(weather ? weather.forecast.forecastday[dayIndex].day : '')
+        forecast = weather && weather.forecast.forecastday[dayIndex] ? weather.forecast.forecastday[dayIndex].day : ''
+        
         rainChance = weather ? forecast.daily_chance_of_rain : ''
         humidity = weather ? forecast.avghumidity : ''
         wind = weather ? forecast.maxwind_mph : ''
