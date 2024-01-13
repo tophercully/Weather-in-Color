@@ -165,7 +165,7 @@ h3 {
     width:0px;
     height:100%;
     transform-origin: 50% 50%;
-    border-right: 1px solid var(--text);
+    border-right: 2px solid var(--text);
 }
 .br-horiz-left{
     
