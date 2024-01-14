@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './SearchBar.css'
 
 export const SearchBar = (props) => {
-    const {locQuery, setLocQuery, locDisplay, setLocDisplay} = props
+    const {locQuery, setLocQuery, locDisplay, setLocDisplay, isMetric, setIsMetric} = props
     const [input, setInput] = useState('')
 
     const placeHolder = '\u2315'
@@ -20,12 +20,26 @@ export const SearchBar = (props) => {
         setLocQuery(input)
     }
 
+    function handleToggle(e) {
+        e.preventDefault()
+        setIsMetric(e.target.checked)
+    }
+
     return(
-        <form onSubmit={handleSubmit} className="search-form">
-            <div className="searchbar">
-                <input placeholder={placeHolder} id="searchInput" onChange={handleChange}></input>
-                <button type="submit" className="search-button" >go</button>
+        <div className="bar-and-metric">
+
+            <form onSubmit={handleSubmit} className="search-form">
+                <div className="searchbar">
+                    <input placeholder={placeHolder} id="searchInput" onChange={handleChange}></input>
+                    <button type="submit" className="search-button">go</button>
+                </div>
+            </form>
+            <div className="switch-metric">
+                <label className="switch">
+                    <input type="checkbox" checked={isMetric} id="forecast-toggle" onChange={handleToggle}/>
+                    <span className="slider">{'metric?'}</span>
+                </label>
             </div>
-        </form>
+        </div>
     )
 }

@@ -2,11 +2,18 @@ import React, {useEffect, useState} from "react";
 import './WeatherNow.css'
 
 export const WeatherNow = (props) => {
-    const {weather} = props
+    const {weather, isMetric} = props
     const name = weather ? weather.location.name : ''
     const region = weather ? (weather.location.region ? ', ' + weather.location.region : '') : ''
-    const temp = weather ? weather.current.temp_f : ''
-    const feelsLike = weather ? weather.current.feelslike_f : ''
+    
+    let temp = weather ? weather.current.temp_f : ''
+    let feelsLike = weather ? weather.current.feelslike_f : ''
+    let tempLetter = '°F'
+    if(isMetric == true){
+        temp = weather ? weather.current.temp_c : ''
+        feelsLike = weather ? weather.current.feelslike_c : ''
+        tempLetter = '°C'
+    }
     const [icon, setIcon] = useState('')
     const condition = weather ? weather.current.condition.text : ''
 
@@ -47,7 +54,7 @@ export const WeatherNow = (props) => {
         <div className="now-card">
             <img src={icon} id="weather-icon" className="weatherIcon"></img>
             <h2>{weather ? condition : ''}</h2>
-            <h1 className="temp">{weather ? Math.round(temp)+'°F' : ''}</h1>
+            <h1 className="temp">{weather ? Math.round(temp)+tempLetter : ''}</h1>
             <div className="temp-break"></div>
             <h2>{weather ? 'Feels like ' + Math.round(feelsLike)+'°' : ''}</h2>
             <h2>{weather ? name+region : ''}</h2>
