@@ -74,11 +74,11 @@ function App() {
       const toSet = await grabWeather()
       setWeather(toSet)
 
-      // invertIcons()
-      let palNow = nightPal
-      if(toSet.current.cloud > 10 && toSet.forecast.forecastday[0].is_sun_up == 1) {
+      // manage color scheme
+      let palNow = sunnyPal
+      if(toSet.forecast.forecastday[0].is_sun_up == true && toSet.current.cloud > 10) {
         palNow = cloudyPal
-      } else if(toSet.current.precip_in > 0 && toSet.forecast.forecastday[0].is_sun_up == 1) {
+      } else if(toSet.current.precip_in > 0 && toSet.forecast.forecastday[0].is_sun_up == true) {
         palNow = rainyPal
         invertIcons()
       } else if(toSet.forecast.forecastday[0].is_sun_up == 0) {

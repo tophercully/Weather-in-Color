@@ -5,6 +5,8 @@ export const SearchBar = (props) => {
     const {locQuery, setLocQuery, locDisplay, setLocDisplay, isMetric, setIsMetric} = props
     const [input, setInput] = useState('')
 
+    const [toggleTrigger, triggerIt] = useState(true)
+
     const placeHolder = '\u2315'
 
     function handleChange(e) {
@@ -23,6 +25,7 @@ export const SearchBar = (props) => {
     function handleToggle(e) {
         e.preventDefault()
         setIsMetric(e.target.checked)
+        triggerIt(!toggleTrigger)
     }
 
     return(
