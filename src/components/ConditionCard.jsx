@@ -2,7 +2,7 @@ import React from "react";
 import './ConditionCard.css'
 
 export const ConditionCard = (props) => {
-    const {weather, dayIndex, hourIndex, orientation} = props
+    const {weather, dayIndex, hourIndex, orientation, isMetric} = props
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     let nowName
     let forecast
@@ -10,6 +10,11 @@ export const ConditionCard = (props) => {
     let rainChance
     let humidity
     let wind
+
+    let perHour = 'mph'
+    if(isMetric == true) {
+        perHour = 'kph'
+    }
     
     const d = new Date()
     //set up modifiers to handle day overlap
@@ -30,12 +35,14 @@ export const ConditionCard = (props) => {
     
     if(props.isDay) {
         nowName = dayName
-        console.log(weather ? weather.forecast.forecastday[dayIndex].day : '')
         forecast = weather && weather.forecast.forecastday[dayIndex] ? weather.forecast.forecastday[dayIndex].day : ''
         
         rainChance = weather ? forecast.daily_chance_of_rain : ''
         humidity = weather ? forecast.avghumidity : ''
         wind = weather ? forecast.maxwind_mph : ''
+        if(isMetric == true) {
+            wind = weather ? forecast.maxwind_kph : ''
+        }
 
         Temp = () => {
             return (
@@ -50,19 +57,28 @@ export const ConditionCard = (props) => {
         rainChance = weather ? forecast.chance_of_rain : ''
         humidity = weather ? forecast.humidity : ''
         wind = weather ? forecast.wind_dir+' '+forecast.wind_mph : ''
+        let hourlyTemp = weather ? forecast.temp_f : ''
+        if(isMetric == true) {
+            wind = weather ? forecast.wind_dir+' '+forecast.wind_kph : ''
+            hourlyTemp = weather ? forecast.temp_c : ''
+        }
 
         Temp = () => {
             return (
                 <div className="tempBubble">
-                    <h1 className="tempDisplay">{Math.round(forecast.temp_f)+'°'}</h1>
+                    <h1 className="tempDisplay">{Math.round(hourlyTemp)+'°'}</h1>
                     <br></br>
                 </div>
         )}
 
     }
     
-    const maxTemp = weather ? forecast.maxtemp_f : ''
-    const minTemp = weather ? forecast.mintemp_f : ''
+    let maxTemp = weather ? forecast.maxtemp_f : ''
+    let minTemp = weather ? forecast.mintemp_f : ''
+    if(isMetric == true) {
+        maxTemp = weather ? forecast.maxtemp_c : ''
+        minTemp = weather ? forecast.mintemp_c : ''
+    }
 
     function Main() {
         return(
@@ -85,7 +101,7 @@ export const ConditionCard = (props) => {
                 </span>
                 <span className="detail-span">
                     <img src="wind.svg" className="water-drop" id="water-drop"></img>
-                    <h2>{wind+'mph'}</h2>
+                    <h2>{wind+perHour}</h2>
                 </span>
              
             </div>

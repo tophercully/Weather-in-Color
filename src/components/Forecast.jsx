@@ -6,7 +6,7 @@ import { Toggle } from "./Toggle";
 import './Toggle.css'
 
 export const Forecast = (props) => {
-  const {weather} = props
+  const {weather, isMetric} = props
   const [forecast, setForecast] = useState({
     checked: false,
     name: 'Daily',
@@ -19,11 +19,11 @@ export const Forecast = (props) => {
   function ForecastNow() {
     if(forecast.name == 'Daily') {
       return(
-        <Daily weather={weather} />
+        <Daily weather={weather} isMetric={isMetric}/>
       )
     } else {
       return(
-        <Hourly weather={weather} />
+        <Hourly weather={weather} isMetric={isMetric}/>
       )
     }
   }

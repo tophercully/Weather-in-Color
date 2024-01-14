@@ -2,10 +2,16 @@ import React from "react";
 import './DetailsNow.css'
 
 export const DetailsNow = (props) => {
-    const {weather} = props
+    const {weather, isMetric} = props
 
     const humidity = weather ? weather.current.humidity : ''
-    const windSpd = weather ? weather.current.wind_mph : ''
+    let windSpd = weather ? weather.current.wind_mph : ''
+    let perHour = ' mph'
+    if(isMetric == true) {
+        windSpd = weather ? weather.current.wind_kph : ''
+        perHour = ' kph'
+
+    }
     const windDir = weather ? weather.current.wind_dir : ''
     const condition = weather ? weather.current.condition.text : ''
     const cloudCover = weather ? weather.current.cloud : ''
@@ -24,7 +30,7 @@ export const DetailsNow = (props) => {
             <span className="detail">
                 <h2>{weather ? 'Wind' : ''}</h2>
                 <h4>{dot}</h4>
-                <h4>{weather ? windDir + ' ' + windSpd+ ' mph': ''}</h4>
+                <h4>{weather ? windDir + ' ' + windSpd+ perHour: ''}</h4>
             </span>
             <span className="detail">
                 <h2>{weather ? 'Cloud Cover' : ''}</h2>

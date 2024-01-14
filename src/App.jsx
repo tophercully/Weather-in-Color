@@ -5,12 +5,15 @@ import { DetailsNow } from './components/DetailsNow'
 import { Loading } from './components/Loading'
 import {SearchBar} from './components/SearchBar'
 import { Forecast } from './components/Forecast'
+import './components/Toggle.css'
 import { Sun } from './components/Sun'
 
 function App() {
   const [weather, setWeather] = useState(undefined)
   const [locQuery, setLocQuery] = useState('auto:ip')
   const [locDisplay, setLocDisplay] = useState('Austin')
+
+  const [isMetric, setIsMetric] = useState(false)
  
   const backupLoqQuery = 'Austin'
   const white =  '#f5f5f5'
@@ -33,9 +36,9 @@ function App() {
     text: white
   }
   const nightPal = {
-    bg:'#1c1c1c',
-    card:'#1c1c1c',
-    accent: white,
+    bg:'#2e2e2e',
+    card:'#2e2e2e',
+    accent: '#F45949',
     text: white
   }
 
@@ -47,6 +50,7 @@ function App() {
     for(var i = 0; i < drops.length; i++) {
         drops[i].style.filter = "invert(100%)"
     }
+    
   }
 
   useEffect(() => {
@@ -70,10 +74,11 @@ function App() {
       const toSet = await grabWeather()
       setWeather(toSet)
 
-      let palNow = sunnyPal
-      if(toSet.current.cloud > 10) {
+      // invertIcons()
+      let palNow = nightPal
+      if(toSet.current.cloud > 10 && toSet.forecast.forecastday[0].is_sun_up == 1) {
         palNow = cloudyPal
-      } else if(toSet.current.precip_in > 0) {
+      } else if(toSet.current.precip_in > 0 && toSet.forecast.forecastday[0].is_sun_up == 1) {
         palNow = rainyPal
         invertIcons()
       } else if(toSet.forecast.forecastday[0].is_sun_up == 0) {
@@ -92,9 +97,6 @@ function App() {
     handleWeather()
   }, [locQuery])
 
-
-  
-
   
 
 
@@ -102,14 +104,14 @@ function App() {
     if(weather.current) {
       return (
         <div className='app-container' >
-          <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay}/>
+          <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay} isMetric={isMetric} setIsMetric={setIsMetric}/>
           {/* <Sun weather={weather}/> */}
           <div className='line1'>
-            <WeatherNow weather={weather} />
-            <DetailsNow weather={weather} />
+            <WeatherNow weather={weather} isMetric={isMetric}/>
+            <DetailsNow weather={weather} isMetric={isMetric}/>
           </div>
           <div className='line2'>
-            <Forecast weather={weather}/>
+            <Forecast weather={weather} isMetric={isMetric}/>
           </div>
           <br></br>
         </div>
