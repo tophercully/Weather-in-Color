@@ -97,6 +97,10 @@ function App() {
     handleWeather()
   }, [locQuery])
 
+  function handleToggle(e) {
+    // e.preventDefault()
+    setIsMetric(e.target.checked)
+  }
   
 
 
@@ -104,7 +108,15 @@ function App() {
     if(weather.current) {
       return (
         <div className='app-container' >
-          <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay} isMetric={isMetric} setIsMetric={setIsMetric}/>
+          <div className='search-and-toggle'>
+            <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay} isMetric={isMetric} setIsMetric={setIsMetric}/>
+            <div className='metric-switch'>
+              <label className="switch">
+                <input type="checkbox" checked={isMetric} id="forecast-toggle" onChange={handleToggle}/>
+                <span className="slider">{' °F / °C '}</span>
+              </label>
+            </div>
+          </div>
           {/* <Sun weather={weather}/> */}
           <div className='line1'>
             <WeatherNow weather={weather} isMetric={isMetric}/>
