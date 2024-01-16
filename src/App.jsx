@@ -75,16 +75,19 @@ function App() {
       setWeather(toSet)
 
       // manage color scheme
-      let palNow = sunnyPal
-      if(toSet.forecast.forecastday[0].is_sun_up == true && toSet.current.cloud > 10) {
+      let palNow
+      console.log(toSet.forecast.forecastday[0].astro.is_sun_up)
+      if(toSet.forecast.forecastday[0].astro.is_sun_up == 1 && toSet.current.cloud > 10) {
         palNow = cloudyPal
-      } else if(toSet.current.precip_in > 0 && toSet.forecast.forecastday[0].is_sun_up == true) {
+      } else if(toSet.current.precip_in > 0 && toSet.forecast.forecastday[0].astro.is_sun_up == true) {
         palNow = rainyPal
         invertIcons()
       } else if(toSet.forecast.forecastday[0].is_sun_up == 0) {
         palNow = nightPal
         invertIcons()
-      } 
+      } else {
+        palNow = sunnyPal
+      }
 
       
       document.documentElement.style.setProperty("--bg", palNow.bg);
@@ -98,7 +101,6 @@ function App() {
   }, [locQuery])
 
   function handleToggle(e) {
-    // e.preventDefault()
     setIsMetric(e.target.checked)
   }
   
@@ -108,6 +110,7 @@ function App() {
     if(weather.current) {
       return (
         <div className='app-container' >
+          <br></br>
           <div className='search-and-toggle'>
             <SearchBar locQuery={locQuery} setLocQuery={setLocQuery} locDisplay={locDisplay} setLocDisplay={setLocDisplay} isMetric={isMetric} setIsMetric={setIsMetric}/>
             <div className='metric-switch'>
