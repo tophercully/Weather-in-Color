@@ -42,8 +42,12 @@
 }
 
 .search-and-toggle{
+  height: 2.5rem;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 4rem;
 }
