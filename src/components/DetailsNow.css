@@ -4,13 +4,9 @@
 
     padding-top: 0.5em;
     text-align: left;
-
-    /* align-self: flex-start; */
 }
 
 .detail > h4 {
-    /* align-self: flex-end; */
-
     font-weight:400;
     font-size:2vmax;
 }
@@ -26,25 +22,14 @@
 }
 
 .now-card-detail {
+    width:40%;
+
     display: flex;
     flex-direction: column;
-    width:40%;
     justify-content: space-between;
     align-items: center;
 
     text-align: right;
-    /* padding:1em; */
-    
-   
-    
-    
-
-    /* background-color: var(--card);
-    border: 1px solid var(--accent);
-    border-radius: 1em;
-    filter: drop-shadow(0.25em 0.25em 0vh var(--accent)); */
-    
-    
 }
 
 .detail {
@@ -54,11 +39,6 @@
     align-items: flex-end;
     justify-content: space-between;
     border-bottom: 1px solid var(--text);
-
-    font-size: 70%;
-
-    /* padding-top: 3em;
-    padding-bottom: 3em; */
 }
 .detail-end {
     width: 100%;
@@ -66,8 +46,17 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-
-    font-size: 70%;
-    /* border-bottom: 1px solid var(--text); */
 }
 
+
+@media (orientation:portrait) {
+    .detail > h2 {
+        font-size: 1em;
+    }
+    .detail > h4 {
+        font-size: 1em;
+    }
+    .now-card-detail{
+        width: 50%;
+    }
+}

@@ -1,0 +1,22 @@
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    filter: blur(5vh);
+
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-element{
+    position: absolute;
+    width: 50vh;
+    aspect-ratio: 1/1;
+    border-radius: 100em;
+    /* background-color: red; */
+    background: color-mix(in srgb, var(--primary) 10%, var(--bg) 90% );
+    /* opacity: 80%; */
+    z-index: 0;
+}
