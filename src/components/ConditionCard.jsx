@@ -117,7 +117,7 @@ export const ConditionCard = (props) => {
                         <Main/>
                         <div className="br-horiz-left"></div>
                     </div>
-                        <div className="br-line"></div>
+                    {/* <div className="br-line"></div> */}
                     <div className="cc-right-detail">
                         <Detail/>
                     </div>
@@ -130,7 +130,7 @@ export const ConditionCard = (props) => {
                     <div className="cc-left">
                         <Detail/>
                     </div>
-                        <div className="br-line"></div>
+                    {/* <div className="br-line"></div> */}
                     <div className="cc-right">
                         
                         <div className="br-horiz-right"></div>

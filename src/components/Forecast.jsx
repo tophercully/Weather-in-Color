@@ -30,7 +30,6 @@ export const Forecast = (props) => {
 
   function handleToggle() {
     // var check = e.target.checked
-
     if(forecast.checked == false) {
       setForecast({
         ...forecast,
@@ -48,31 +47,40 @@ export const Forecast = (props) => {
     }
   }
 
- function Signal() {
-  if(test) {
-    return(
-      <p>its true</p>
-    )
-  } else {
-    return(
-      <p>nvm</p>
-    )
+  function makeDaily(){
+    setForecast({
+      ...forecast,
+      checked: false,
+      name:'Daily',
+      opposite: 'Daily'
+    })
   }
- }
+  function makeHourly(){
+    setForecast({
+        ...forecast,
+        checked: true,
+        name:'Hourly',
+        opposite: 'Daily'
+      })
+  }
+
+  
 
 
+
+ 
 
 
   return(
     <div className="forecast">
-
-      {/* <Signal/> */}
       <div className="togglebox">
-        {/* <p onClick={handleToggle}>{forecast.opposite}</p> */}
-        {/* <input type="checkbox" id="toggle" onChange={handleToggle}></input> */}
-        <label className="switch">
-            <input type="checkbox" checked={forecast.checked} id="forecast-toggle" onChange={handleToggle}/>
-            <span className="slider">{forecast.name}</span>
+        <label className="toggle-label">
+          <p className="forecast-title">Daily</p>
+          <input type="radio" name="forecast" className="forecast-toggle" defaultChecked='unchecked' onClick={makeDaily}/>
+        </label>
+        <label className="toggle-label">
+          <p className="forecast-title">Hourly</p>
+          <input type="radio" name="forecast" className="forecast-toggle" defaultChecked='checked' onClick={makeHourly}/>
         </label>
       </div>
       

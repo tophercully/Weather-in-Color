@@ -18,7 +18,7 @@
 }
 
 .now{
-    font-size: 4vmin;
+    font-size: 3vmin;
     margin-top: 1vmin;
     font-weight:500;
 }
@@ -33,7 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 10vmin;
+    font-size: 7vmin;
 
     padding-top: 1vmin;
     padding-bottom: 1vmin;
@@ -43,7 +43,7 @@
 }
 
 .tempBubble > h3 {
-    font-size: 4vmin;
+    font-size: 3vmin;
 }
 
 h2 {
@@ -79,23 +79,45 @@ h3 {
 
 
 .condition-card {
+    
+
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     
-    padding: 5px;
-    margin-top: 5vh;
+    /* padding: 5px; */
+    /* margin-top: 5vh; */
     margin-left:3px;
     margin-right:3px;
 
     width: 100%;
+    height: 40vmin;
 
     flex-grow:1;
     
     /* background-color: black; */
     /* border-right: 0.5px solid var(--accent); */
+
+    /* animation: newIn;
+    animation-timeline: view();
+    animation-range: entry; */
     
+}
+
+@media (orientation:portrait) {
+    .condition-card{
+        /* height: 20vh; */
+    }
+}
+
+@keyframes newIn{
+    0%{
+        transform: opacity(0%);
+    }
+    100%{
+        transform: opacity(100%)
+    }
 }
 
 .condition-card-main {
@@ -104,19 +126,20 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 
 
-    height: 30vmin;
+    height: 25vmin;
     aspect-ratio: 1/1;
 
 
     background-color: var(--accent);
-    filter: drop-shadow(0 0 30px var(--accent)) drop-shadow(0 0 10px var(--accent));
+    filter: drop-shadow(0 0 15px var(--accent)) drop-shadow(0 0 5px var(--accent));
     color:var(--bg);
     border-radius: 200rem;
     font-size: 50%;
 
-    padding: 3vmin;
+    /* padding: 3vmin; */
 
 }
 
@@ -162,7 +185,7 @@ h3 {
 
 .br-line{
     z-index: -1;
-    position: absolute;
+    position: relative;
     width:0px;
     height:100%;
     transform-origin: 50% 50%;
@@ -170,14 +193,16 @@ h3 {
 }
 .br-horiz-left{
     
-    width:25vw;
+    width:35%;
     height:0px;
+    flex-grow: 1;
 
     border-top: 1px solid var(--text);
 }
 .br-horiz-right{
-    width:25vw;
+    width:35%;
     height:0px;
+    flex-grow: 1;
 
     border-top: 1px solid var(--text);
 }
@@ -191,7 +216,13 @@ h3 {
     justify-self: center;
     align-self: center;
 
-    width: 50%;
+    padding-top: 10vh;
+
+    width: 10%;
+    height: 100%;
+    flex-grow: 1;
+
+    border-right: 1px solid var(--text);
     
 }
 .cc-right{
@@ -202,10 +233,13 @@ h3 {
 
     justify-self: flex-start;
     align-self: center;
-
+    
+    padding-top: 10vh;
+    /* border-left: 1px solid var(--text); */
     
 
-    width: 50%;
+    width: 10%;
+    flex-grow: 1;
     
 }
 .cc-right-detail{
@@ -214,12 +248,18 @@ h3 {
     justify-content: flex-end;
     align-items: center;
 
-    justify-self: flex-start;
-    align-self: center;
+    justify-self: left;
+    align-self: left;
 
     padding-right: 5%;
+    padding-top: 10vh;
+    margin-left: 0;
+    padding-left: 0;
 
-    width: 50%;
+    width: 10%;
+    height: 100%;
+
+    flex-grow: 1;
     
 }
 
